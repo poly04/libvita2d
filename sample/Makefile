@@ -1,13 +1,14 @@
-TITLE_ID = VITA2DTST
-TARGET   = vita2dsample
-OBJS     = main.o image.o
+TITLE_ID = NATE00003
+TARGET   = vita3D
+OBJS     = main.o
 
-LIBS = -lvita2d -lSceKernel_stub -lSceDisplay_stub -lSceGxm_stub \
-	-lSceSysmodule_stub -lSceCtrl_stub -lScePgf_stub \
-	-lSceCommonDialog_stub -lfreetype -lpng -ljpeg -lz -lm -lc
+LIBS = -lc -lSceKernel_stub -lSceDisplay_stub -lSceGxm_stub	\
+	-lSceCtrl_stub -lSceTouch_stub -lvita3d -lSceSysmodule_stub \
+	-lSceCommonDialog_stub
 
 PREFIX  = arm-vita-eabi
-CC      = $(PREFIX)-gcc
+CC      = $(PREFIX)-g++
+CXX 	= $(PREFIX)-g++
 CFLAGS  = -Wl,-q -Wall -O3
 ASFLAGS = $(CFLAGS)
 
@@ -25,9 +26,6 @@ eboot.bin: $(TARGET).velf
 
 $(TARGET).elf: $(OBJS)
 	$(CC) $(CFLAGS) $^ $(LIBS) -o $@
-
-%.o: %.png
-	$(PREFIX)-ld -r -b binary -o $@ $^
 
 clean:
 	@rm -rf $(TARGET).vpk $(TARGET).velf $(TARGET).elf $(OBJS) \

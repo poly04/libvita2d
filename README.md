@@ -1,5 +1,6 @@
-## VITA2DLIB
+# libvita3d
 
-Simple and Fast (using the GPU) 2D library for the PSVita
+simple and fast (using the GPU) 3D library for the Vita.
 
-Depends on [vita portlibs] (https://github.com/xerpi/vita_portlibs)
+A big THANK YOU to Xerpi for writing the original libvita2d, most of the work was done by him.
+Sorry to those I offended by not mentioning him.
